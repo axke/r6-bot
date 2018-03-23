@@ -3,7 +3,7 @@ const path = require('path');
 const oneLine = require('common-tags').oneLine;
 //const sqlite = require('sqlite');
 
-var token = 's6WeZ839lbyfuEBNkPDYXVd4EflkNmKa';
+var token = 'NDI2NzU2MTc0Njk2OTM5NTIx.DZanLw.IX8wsZr4wdOOHvxzdyLZbYUSfkU';
 /*if (process.env.NODE_ENV === 'development') {
     token = process.env.DEV_BOT_TOKEN;
 }*/
@@ -11,7 +11,7 @@ var token = 's6WeZ839lbyfuEBNkPDYXVd4EflkNmKa';
 
 
 const client = new commando.Client({
-    owner: ['102162505094172672','102199187063451648'],
+    owner: ['102162505094172672'],
     commandPrefix: '!',
     unknownCommandResponse: false
 });

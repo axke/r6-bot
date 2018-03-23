@@ -11,5 +11,5 @@ module.exports = new function utils() {
         'Silver 4', 'Silver 3', 'Silver 2', 'Silver 1',
         'Gold 4', 'Gold 3', 'Gold 2', 'Gold 1',
         'Platinum 3', 'Platinum 2', 'Platinum 1', 'Diamond',
-    ]
+    ];
 }

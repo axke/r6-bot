@@ -3,17 +3,18 @@ var request = require('request');
 function Request() {
 }
 
-Request.prototype.r6dbAPI = function (url, method, form) {
-    return new Promise(function (resolve, reject) {
+Request.prototype.r6dbAPI = (url, method, form) => {
+    return new Promise((resolve, reject) => {
         if (typeof method == 'undefined') {
             method = 'GET';
         }
-        var options = {
+        let options = {
             method: method.toUpperCase(),
             url: url,
             json: true,
             headers: {
-                'x-api-id': '5e23d930-edd3-4240-b9a9-723c673fb649'
+                'x-app-id': 'dae303fc-e344-4dfc-99e0-5ed87801e730',
+                'Content-Type': 'application/json'
             }
         };
 
@@ -27,19 +28,19 @@ Request.prototype.r6dbAPI = function (url, method, form) {
             }
 
             if (response.statusCode !== 200) {
-                var httpError = new Error('HTTP Code ' + response.statusCode);
+                let httpError = new Error('HTTP Code ' + response.statusCode);
                 httpError.statusCode = response.statusCode;
                 reject(httpError);
                 return;
             }
 
             if (typeof json === 'undefined') {
-                var jsonError = new Error('R6DB returned invalid json');
+                let jsonError = new Error('R6DB returned invalid json');
                 reject(jsonError);
                 return;
             }
             if (typeof json != 'object') {
-                var jsonError = new Error('R6DB returned invalid json');
+                let jsonError = new Error('R6DB returned invalid json');
                 reject(jsonError);
                 return;
             }
