@@ -7,7 +7,7 @@ module.exports = class StatsCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'stats',
-            aliases: [''],
+            aliases: [],
             group: 'players',
             memberName: 'stats',
             description: 'Get user stats',
@@ -22,7 +22,7 @@ module.exports = class StatsCommand extends Commando.Command {
         });
     }
 
-    async run(message, {name, region, platform}) {
+    async run(message, {name}) {
         const users = await util.request.r6dbAPI(`https://r6db.com/api/v2/players?name=${name}&platform=PC`);
         console.log('users!');
         let userId = '';

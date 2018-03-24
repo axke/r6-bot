@@ -7,7 +7,7 @@ module.exports = class RankCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'rank',
-            aliases: [''],
+            aliases: [],
             group: 'players',
             memberName: 'rank',
             description: 'Get user rank',
