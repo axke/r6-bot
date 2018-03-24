@@ -51,18 +51,19 @@ module.exports = class StatsCommand extends Commando.Command {
             .setTimestamp()
             .setDescription(`General Stats for player`);
         const stats = details.stats;
+
         embed.addField(`Kills`,
             `Kills: ${stats.general.kills} Deaths: ${stats.general.deaths} Assists: ${stats.general.assists}\n` +
             `KD: ${(stats.general.kills / stats.general.deaths).toFixed(2)}\n` +
             `Accuracy: ${(stats.general.bulletsFired / stats.general.bulletsHit).toFixed(2)}\n`+
             `Headshots: ${stats.general.headshot} Headshot Rate: ${(stats.general.headshot / stats.general.kills).toFixed(2)}%\n`,
             `Penetration: ${stats.general.penetrationKills} Blind: ${stats.general.blindKills} Melee: ${stats.general.meleeKills}\n`,
-            false);
+            true);
 
         embed.addField(`Wins`,
             `Wins: ${stats.general.won} Loss: ${stats.general.lost} Time: ${(stats.custom.timePlayed / 60 / 60).toFixed(2)}` +
             `\nWinrate: ${(stats.general.won / (stats.general.won + stats.general.lost)).toFixed(2)}%`,
-            false);
+            true);
 
         embed.addField(`Best`,
             `Bomb - Score: ${stats.bomb.bestScore} Wins: ${stats.bomb.won} Loss: ${stats.bomb.lost} Winrate: ${(stats.bomb.won / (stats.bomb.won + stats.bomb.lost)).toFixed(2)}%\n` +
