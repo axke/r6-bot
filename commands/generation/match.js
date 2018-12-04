@@ -23,7 +23,7 @@ module.exports = class MatchCommand extends Commando.Command {
     }
 
     async run(message, {players}) {
-        message.embed(this.generateTeams(players.split(',')));
+        message.embed(this.generateEmbed(players.split(',')));
     }
 
     generateEmbed(players) {
