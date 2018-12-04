@@ -27,21 +27,15 @@ module.exports = class MatchCommand extends Commando.Command {
         message.embed(this.generateMap());
     }
 
-    generateTeams(players) {
+    generateEmbed(players) {
+        // figure out teams
         players = this.shuffle(players);
         const middle = Math.ceil(players.length / 2);
-        const team1 = players.splice(0, middle);
-        const team2 = players.splice(middle, players.length);
         let embed = new RichEmbed()
             .setAuthor(`R6 Team Generation`)
-            .setDescription(
-                `Blue Team: ${team1.toString()}\n` +
-                `Orange Team: ${team2.toString()}`
-            );
-        return embed;
-    }
-
-    generateMap() {
+            .addField(`Blue Team`, `${tplayers.splice(0, middle)}`, false)
+            .addField(`Orange Team`, `${players.splice(middle, players.length)}`, false);
+        // figure out the map
         const maps = [
             {
                 name: 'Bank',
@@ -67,6 +61,13 @@ module.exports = class MatchCommand extends Commando.Command {
             {name: 'Oregon', thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/9/96/Oregon.jpg'}
         ];
         const map = maps[Math.floor(Math.random() * maps.length)];
+        embed.setDescription(`The map is: ${map.name}`);
+        embed.setImage(`${map.thumb}`);
+        return embed;
+    }
+
+    generateMap() {
+
         let embed = new RichEmbed()
             .setAuthor(`R6 Team Generation`)
             .setDescription(
