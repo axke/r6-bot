@@ -3,7 +3,7 @@ const path = require('path');
 const oneLine = require('common-tags').oneLine;
 //const sqlite = require('sqlite');
 
-var token = 'NDI2NzU2MTc0Njk2OTM5NTIx.DZanLw.IX8wsZr4wdOOHvxzdyLZbYUSfkU';
+const token = process.env.BOT_TOKEN;
 /*if (process.env.NODE_ENV === 'development') {
     token = process.env.DEV_BOT_TOKEN;
 }*/
@@ -88,7 +88,7 @@ client
 ).catch(console.error);*/
 
 client.registry
-    .registerGroup('players', 'Players Information')
+    .registerGroup('generation', 'Custom Game Match Generation')
     .registerDefaults()
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
