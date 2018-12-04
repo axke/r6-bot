@@ -24,7 +24,6 @@ module.exports = class MatchCommand extends Commando.Command {
 
     async run(message, {players}) {
         message.embed(this.generateTeams(players.split(',')));
-        message.embed(this.generateMap());
     }
 
     generateEmbed(players) {
@@ -63,17 +62,6 @@ module.exports = class MatchCommand extends Commando.Command {
         const map = maps[Math.floor(Math.random() * maps.length)];
         embed.setDescription(`The map is: ${map.name}`);
         embed.setImage(`${map.thumb}`);
-        return embed;
-    }
-
-    generateMap() {
-
-        let embed = new RichEmbed()
-            .setAuthor(`R6 Team Generation`)
-            .setDescription(
-                `${map.name}`
-            )
-            .setThumbnail(`${map.thumb}`);
         return embed;
     }
 
