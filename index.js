@@ -12,7 +12,7 @@ const token = process.env.BOT_TOKEN;
 
 const client = new commando.Client({
     owner: ['102162505094172672'],
-    commandPrefix: '!',
+    commandPrefix: 'r6/',
     unknownCommandResponse: false
 });
 
