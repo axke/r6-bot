@@ -32,7 +32,7 @@ module.exports = class MatchCommand extends Commando.Command {
         const middle = Math.ceil(players.length / 2);
         let embed = new RichEmbed()
             .setAuthor(`R6 Team Generation`)
-            .addField(`Blue Team`, `${tplayers.splice(0, middle)}`, false)
+            .addField(`Blue Team`, `${players.splice(0, middle)}`, false)
             .addField(`Orange Team`, `${players.splice(middle, players.length)}`, false);
         // figure out the map
         const maps = [
