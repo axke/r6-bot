@@ -34,8 +34,8 @@ module.exports = class CompositionCommand extends Commando.Command {
         ];
         let embed = new RichEmbed()
             .setAuthor(`R6 Team Composition Generator`)
-            .addField(`Attack`, this.arrayToList(fiveRandoms(attack)), false)
-            .addField(`Defense`, this.arrayToList(fiveRandoms(defense)), false);        
+            .addField(`Attack`, this.arrayToList(this.fiveRandoms(attack)), false)
+            .addField(`Defense`, this.arrayToList(this.fiveRandoms(defense)), false);        
         return embed;
     }
 
