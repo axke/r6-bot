@@ -14,7 +14,6 @@ module.exports = class CompositionCommand extends Commando.Command {
             memberName: 'composition',
             description: 'Create a team composition',
             examples: ['team', 'composition', 'comp'],
-            args: []
         });
     }
 
@@ -34,8 +33,8 @@ module.exports = class CompositionCommand extends Commando.Command {
         ];
         let embed = new RichEmbed()
             .setAuthor(`R6 Team Composition Generator`)
-            .addField(`Attack`, this.arrayToList(this.fiveRandoms(attack)), false)
-            .addField(`Defense`, this.arrayToList(this.fiveRandoms(defense)), false);        
+            .addField(`Attack`, this.arrayToList(attack), false)
+            .addField(`Defense`, this.arrayToList(defense), false);        
         return embed;
     }
 
