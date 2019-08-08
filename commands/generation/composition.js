@@ -46,8 +46,7 @@ module.exports = class CompositionCommand extends Commando.Command {
         let randoms = [];
         let c = 5;
         for (let n = 0; n < c; n++) {
-            let num = Math.floor(Math.random() * operators.length - n);
-            n = Math.min(n + 1, c);
+            let num = Math.floor(Math.random() * operators.length - n);            
             randoms.push(operators.splice(num, 1));  
         }
         return randoms;              
