@@ -1,5 +1,7 @@
 const Commando = require('discord.js-commando'),
-    {RichEmbed} = require('discord.js'),
+    {
+        RichEmbed
+    } = require('discord.js'),
     util = require('./../../utils'),
     moment = require('moment');
 
@@ -12,17 +14,17 @@ module.exports = class MatchCommand extends Commando.Command {
             memberName: 'match',
             description: 'Create a match',
             examples: ['match player1, player2, player3'],
-            args: [
-                {
-                    key: 'players',
-                    prompt: 'Who is playing? (Comma Separated Values)',
-                    type: 'string',
-                },
-            ]
+            args: [{
+                key: 'players',
+                prompt: 'Who is playing? (Comma Separated Values)',
+                type: 'string',
+            }, ]
         });
     }
 
-    async run(message, {players}) {
+    async run(message, {
+        players
+    }) {
         message.embed(this.generateEmbed(players.split(',')));
     }
 
@@ -35,8 +37,7 @@ module.exports = class MatchCommand extends Commando.Command {
             .addField(`Blue Team`, `${players.splice(0, middle)}`, false)
             .addField(`Orange Team`, `${players}`, false);
         // figure out the map
-        const maps = [
-            {
+        const maps = [{
                 name: 'Bank',
                 thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/3/3b/R6_EV_08Bank02_Ludo_Final_229466.jpg'
             },
@@ -44,7 +45,10 @@ module.exports = class MatchCommand extends Commando.Command {
                 name: 'Club House',
                 thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/4/49/R6_EV_04BikersClub02_Ludo_Final_229465.jpg'
             },
-            {name: 'Villa', thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/3/3e/Villa_-_Key_Art.png'},
+            {
+                name: 'Villa',
+                thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/3/3e/Villa_-_Key_Art.png'
+            },
             {
                 name: 'Coastline',
                 thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/4/4d/Coastline_map_teaser_image.png'
@@ -57,7 +61,10 @@ module.exports = class MatchCommand extends Commando.Command {
                 name: 'Consulate',
                 thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/f/fd/Consulate_updated_image.jpg'
             },
-            {name: 'Oregon', thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/9/96/Oregon.jpg'}
+            {
+                name: 'Oregon',
+                thumb: 'https://vignette.wikia.nocookie.net/rainbowsix/images/9/96/Oregon.jpg'
+            }
         ];
         const map = maps[Math.floor(Math.random() * maps.length)];
         embed.setDescription(`The map is: ${map.name}`);
