@@ -21,7 +21,7 @@ module.exports = class GSOKCommand extends Commando.Command {
         if (message.member.voiceChannel) {
             message.member.voiceChannel.join().then(
                 connection => {
-                    const dispatcher = connection.playArbitraryInput('http://d1playscdntv-a.akamaihd.net/video/I89ViLZo-om/processed/720.mp4');
+                    const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/gsok.mp3`);
                     dispatcher.on('end', end => {
                         message.member.voiceChannel.leave();
                     });

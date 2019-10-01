@@ -4,6 +4,7 @@ const Commando = require('discord.js-commando'),
     } = require('discord.js'),
     util = require('../../utils'),
     moment = require('moment');
+    ytdl = require('ytdl-core');
 
 module.exports = class SendItCommand extends Commando.Command {
     constructor(client) {
@@ -21,7 +22,9 @@ module.exports = class SendItCommand extends Commando.Command {
         if (message.member.voiceChannel) {
             message.member.voiceChannel.join().then(
                 connection => {
-                    const dispatcher = connection.playArbitraryInput('https://www.youtube.com/watch?v=RZqlgKCOJzU');
+                    const streamOptions = { seek: 0, volume: 1 };
+                    const stream = ytdl('https://www.youtube.com/watch?v=RZqlgKCOJzU', { filter : 'audioonly' });
+                    const dispatcher = connection.playStream(stream, streamOptions);
                     dispatcher.on('end', end => {
                         message.member.voiceChannel.leave();
                     });
