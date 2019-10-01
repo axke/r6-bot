@@ -89,6 +89,7 @@ client
 
 client.registry
     .registerGroup('generation', 'Custom Game Match Generation')
+    .registerGroup('voice', 'Voice Clip Commands')
     .registerDefaults()
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
