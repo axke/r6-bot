@@ -4,8 +4,7 @@ const Commando = require('discord.js-commando'),
     } = require('discord.js'),
     util = require('../../utils'),
     moment = require('moment');
-    ytdl = require('ytdl-core');
-
+    
 module.exports = class SendItCommand extends Commando.Command {
     constructor(client) {
         super(client, {

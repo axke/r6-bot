@@ -5,15 +5,15 @@ const Commando = require('discord.js-commando'),
     util = require('../../utils'),
     moment = require('moment');
 
-module.exports = class VoiceCommand extends Commando.Command {
+module.exports = class SoundCommand extends Commando.Command {
     constructor(client) {
         super(client, {
-            name: 'voice',
-            aliases: ['voice', 'sound'],
+            name: 'sound',
+            aliases: [],
             group: 'voice',
-            memberName: 'voice',
-            description: 'Plays voice clip',
-            examples: ['voice {sound}', 'sound {sound}'],
+            memberName: 'sound',
+            description: 'Plays sound clip',
+            examples: ['sound {soundName}'],
             args: [{
                 key: 'sound',
                 prompt: 'What sound do you want played?',
