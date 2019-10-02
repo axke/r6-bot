@@ -4,7 +4,7 @@ const Commando = require('discord.js-commando'),
     } = require('discord.js'),
     util = require('../../utils'),
     moment = require('moment');
-    
+
 module.exports = class SendItCommand extends Commando.Command {
     constructor(client) {
         super(client, {
@@ -37,4 +37,5 @@ module.exports = class SendItCommand extends Commando.Command {
         } else {
             message.reply(`You must be in a voice channel to run this command.`);
         }
+    }
 };
