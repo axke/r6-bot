@@ -28,7 +28,8 @@ module.exports = class GSOKCommand extends Commando.Command {
                             vc.leave();
                         });
                     }
-                    catch {
+                    catch(err) {
+                        message.reply(`Error: ${err}`);
                         vc.leave();
                     }
                 }
