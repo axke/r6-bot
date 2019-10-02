@@ -5,25 +5,30 @@ const Commando = require('discord.js-commando'),
     util = require('../../utils'),
     moment = require('moment');
 
-module.exports = class PewCommand extends Commando.Command {
+module.exports = class VoiceCommand extends Commando.Command {
     constructor(client) {
         super(client, {
-            name: 'pew',
-            aliases: ['bang'],
+            name: 'voice',
+            aliases: ['voice', 'sound'],
             group: 'voice',
-            memberName: 'pew',
-            description: 'Pew pew',
-            examples: ['pew', 'bang'],
+            memberName: 'voice',
+            description: 'Plays voice clip',
+            examples: ['voice {sound}', 'sound {sound}'],
+            args: [{
+                key: 'sound',
+                prompt: 'What sound do you want played?',
+                type: 'string',
+            },]
         });
     }
 
-    async run(message) {
+    async run(message, { sound }) {
         if (message.member.voiceChannel) {
             const vc = message.member.voiceChannel;
             vc.join().then(
                 connection => {
                     try {
-                        const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/pew.mp3`);
+                        const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/${sound}.mp3`);
                         dispatcher.on('end', end => {
                             vc.leave();
                         });

@@ -20,18 +20,21 @@ module.exports = class SendItCommand extends Commando.Command {
 
     async run(message) {
         if (message.member.voiceChannel) {
-            message.member.voiceChannel.join().then(
+            const vc = message.member.voiceChannel;
+            vc.join().then(
                 connection => {
-                    const streamOptions = { seek: 0, volume: 1 };
-                    const stream = ytdl('https://www.youtube.com/watch?v=RZqlgKCOJzU', { filter : 'audioonly' });
-                    const dispatcher = connection.playStream(stream, streamOptions);
-                    dispatcher.on('end', end => {
-                        message.member.voiceChannel.leave();
-                    });
+                    try {
+                        const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/sendit.mp3`);
+                        dispatcher.on('end', end => {
+                            vc.leave();
+                        });
+                    }
+                    catch {
+                        vc.leave();
+                    }
                 }
             )
         } else {
             message.reply(`You must be in a voice channel to run this command.`);
         }
-    }
 };

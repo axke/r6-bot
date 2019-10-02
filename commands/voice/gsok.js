@@ -19,12 +19,18 @@ module.exports = class GSOKCommand extends Commando.Command {
 
     async run(message) {
         if (message.member.voiceChannel) {
-            message.member.voiceChannel.join().then(
+            const vc = message.member.voiceChannel;
+            vc.join().then(
                 connection => {
-                    const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/gsok.mp3`);
-                    dispatcher.on('end', end => {
-                        message.member.voiceChannel.leave();
-                    });
+                    try {
+                        const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/gsok.mp3`);
+                        dispatcher.on('end', end => {
+                            vc.leave();
+                        });
+                    }
+                    catch {
+                        vc.leave();
+                    }
                 }
             )
         } else {
