@@ -27,7 +27,7 @@ module.exports = class KnockCommand extends Commando.Command {
                     try {
 						console.log('dir name below')
 						console.log(__dirname);
-                        const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/knock.mp3`);
+                        const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/knocking.mp3`);
                         dispatcher.on('end', end => {
                             vc.leave();
                         });
