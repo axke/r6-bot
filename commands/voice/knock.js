@@ -20,10 +20,13 @@ module.exports = class KnockCommand extends Commando.Command {
     async run(message) {
         if (message.member.voiceChannel) {
             const vc = message.member.voiceChannel;
+			console.log('chat');
             vc.join().then(
                 connection => {
+					console.log('joined');
                     try {
-						console.log(`${__dirname}`);
+						console.log('dir name below')
+						console.log(__dirname);
                         const dispatcher = connection.playFile(`${__dirname}/../../assets/mp3/knock.mp3`);
                         dispatcher.on('end', end => {
                             vc.leave();
