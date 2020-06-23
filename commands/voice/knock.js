@@ -37,7 +37,9 @@ module.exports = class KnockCommand extends Commando.Command {
                         vc.leave();
                     }
                 }
-            )
+            ).catch(e => {
+				console.error('error!', e);
+			});
         } else {
             message.reply(`You must be in a voice channel to run this command.`);
         }

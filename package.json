@@ -14,7 +14,7 @@
     "common-tags": "^1.7.2",
     "core-js": "^2.4.1",
     "discord.js": "^11.2.0",
-    "discord.js-commando": "git://github.com/gawdl3y/discord.js-commando.git#821e0ada2165a7329477403355108f55408296e9",
+    "discord.js-commando": "0.10.0",
     "moment": "^2.21.0",
     "node-opus": "0.3.2",
     "request": "^2.81.0",
